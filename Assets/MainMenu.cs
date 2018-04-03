@@ -40,10 +40,10 @@ public class MainMenu:MonoBehaviour {
 		catch(IOException e){}
 
 		if(_files!=null) {
-			int _mp4Count=0;
+			int _vidCount=0;
 			for(int i=0; i<_files.Length; i++)
-				if((_files[i].EndsWith(".mp4"))||(_files[i].EndsWith(".webm"))) _mp4Count++;
-			m_vidsFound.text="Found "+_mp4Count+" videos.";
+				if((_files[i].EndsWith(".mp4"))||(_files[i].EndsWith(".webm"))) _vidCount++;
+			m_vidsFound.text="Found "+_vidCount+" videos.";
 		}
 		else m_vidsFound.text="No videos found.";
 
@@ -64,7 +64,7 @@ public class MainMenu:MonoBehaviour {
 		if(_files!=null) {
 			int _vidCount=0;
 			for(int i=0; i<_files.Length; i++)
-				if(_files[i].EndsWith(".mp4")) _vidCount++;
+				if((_files[i].EndsWith(".mp4"))||(_files[i].EndsWith(".webm"))) _vidCount++;
 
 			if(_vidCount>0) {
 				Player.inst.StartPlayer(_files, float.Parse(m_timePer.text), float.Parse(m_playbackSpeed.text));
